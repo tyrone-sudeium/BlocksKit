@@ -20,7 +20,7 @@ static BOOL a2_methodSignaturesCompatible(NSMethodSignature *methodSignature, NS
 
 	NSUInteger numberOfArguments = methodSignature.numberOfArguments;
 	for (NSUInteger i = 2; i < numberOfArguments; i++) {
-		if (strcmp([methodSignature getArgumentTypeAtIndex: i], [blockSignature getArgumentTypeAtIndex: i - 1]))
+		if ([methodSignature getArgumentTypeAtIndex: i][0] != [blockSignature getArgumentTypeAtIndex: i - 1][0])
 			return NO;
 	}
 	return YES;
